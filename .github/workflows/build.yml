@@ -1,6 +1,6 @@
 name: Building and pushing a docker image to Amazon ECR
 on: [push, pull_request]
-  
+
 
 env:
   AWS_DEFAULT_REGION: ap-southeast-1
@@ -24,9 +24,7 @@ jobs:
         $( aws ecr get-login --no-include-email )
     - name: Build and tag the image
       run: |
-        docker build \ 
-          -t $CONTAINER_IMAGE \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE ./app
+        docker image build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE ./app
     - name: Push
       if: github.ref == 'refs/heads/master'
       run: |
