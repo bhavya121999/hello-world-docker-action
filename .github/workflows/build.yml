@@ -3,11 +3,11 @@ on: [push, pull_request]
 
 
 env:
-  AWS_DEFAULT_REGION: ap-southeast-1
+  AWS_DEFAULT_REGION:ap-southeast-1
   AWS_DEFAULT_OUTPUT: json
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY }}
   CONTAINER_IMAGE: myimage:${{ github.sha }}
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
         $( aws ecr get-login --no-include-email )
     - name: Build and tag the image
       run: |
-        docker build -t 12345.dkr.ecr.ap-southeast-1.amazonaws.com/myimage:64e88c9883753dfd833bc71c9513a5d3fb3ad9f1 ./app
+        docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-1.amazonaws.com/myimage:64e88c9883753dfd833bc71c9513a5d3fb3ad9f1 ./app
     - name: Push
       if: github.ref == 'refs/heads/master'
       run: |
