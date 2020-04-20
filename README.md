@@ -14,7 +14,7 @@ Add three new secrets namely ```AWS_ACCOUNT_ID```, ```AWS_ACCESS_KEY_ID```, and 
 
 ![1](https://user-images.githubusercontent.com/46423346/79722163-2fe58b80-8301-11ea-9a05-c504a865ce00.png)
 
-5. Commit something under app directory and push the changes to master.
+5. Commit something under the directory and push the changes to master.
  
 
 
