@@ -2,7 +2,7 @@ name: Building and pushing a docker image to Amazon ECR
 on: [push, pull_request]
 
 env:
-  AWS_DEFAULT_REGION: ap-southeast-1
+  AWS_DEFAULT_REGION: ap-south-1
   AWS_DEFAULT_OUTPUT: json
   AWS_ACCOUNT_ID: ${{secrets.AWS_ACCOUNT_ID }}
   AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID }}
