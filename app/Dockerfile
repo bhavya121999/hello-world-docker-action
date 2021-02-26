@@ -1,3 +1,7 @@
-FROM busybox
-ENTRYPOINT ["/bin/cat"]
-CMD ["/etc/passwd"]
+FROM ubuntu
+
+MAINTAINER bhavya gupta<bhavyagupta1203@gmail.com>
+
+RUN apt-get update
+
+CMD ["echo", "Hello World"]
